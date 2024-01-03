@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body style="background-color: rgb(248, 248, 248);">
+    <div class="container mt-5 col-sm-6">
+        <h5 style="text-align: center;">Update Client</h5>
+        <form th:action="@{/updateUser}" th:object="${user}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="form-group">
+                <label for="category">full_Name</label>
+                <input type="text" class="form-control" th:field="*{full_name}" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="model">Email</label>
+                <input type="text" class="form-control" th:field="*{email}" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Address</label>
+                <input type="text" class="form-control" th:field="*{address}" placeholder="Enter your adress" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nbPlaces">Phone</label>
+                <input type="text" class="form-control" th:field="*{phone}" placeholder="Enter your phone" required>
+            </div>
+
+         
+
+
+          
+
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and other scripts if needed -->
+    <script src="/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
