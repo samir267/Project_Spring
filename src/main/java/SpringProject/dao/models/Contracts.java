@@ -29,6 +29,12 @@ public class Contracts {
     @ManyToOne
     @JoinColumn(name = "id_car", referencedColumnName = "id")
     private Car car;
+
+    @ManyToOne
+    @JoinColumn(name = "id_client", referencedColumnName = "id")
+    private User user;
+
+
     private LocalDateTime date_deb;
     private LocalDateTime date_fin;
     private int prix_Contract;
@@ -37,6 +43,9 @@ public class Contracts {
     public Long getId_car() {
         return car != null ? car.getId() : null;
     }
+     public Long getId_client() {
+        return user != null ? user.getId() : null;
+    }
     
     
     public void setId_car(Long id) {
@@ -44,6 +53,13 @@ public class Contracts {
             car = new Car();
         }
         car.setId(id);
+    }
+
+    public void setId_user(Long id) {
+        if (user == null) {
+            user = new User();
+        }
+        user.setId(id);
     }
     
     

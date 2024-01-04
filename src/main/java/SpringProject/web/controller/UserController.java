@@ -61,6 +61,7 @@ public class UserController {
             model.addAttribute("users", users);
             return "UsersList";
         }
+
     
         @GetMapping("/login")
         public String login() {
@@ -122,7 +123,7 @@ public String updateCar(@ModelAttribute("user") User updatedUser, Model model) t
         }
 
         userService.updateUser(updatedUser.getId(), updatedUser);
-        return "redirect:/allUsers";
+        return "redirect:/allUsers2";
     } catch (NotFoundException e) {
         model.addAttribute("errorMessage", "User not found");
         return "errorView"; 
@@ -142,15 +143,10 @@ public String updateCar(@ModelAttribute("user") User updatedUser, Model model) t
 
      @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
-        // Récupérer les détails d'authentification actuels de l'utilisateur
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        
-        // Si l'authentification est présente, terminer la session
         if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        
-        // Rediriger vers la page de connexion avec un message de déconnexion
         return "redirect:/login";
     }
 }

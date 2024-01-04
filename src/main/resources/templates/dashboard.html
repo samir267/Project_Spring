@@ -204,7 +204,7 @@
 									<td th:text="${car.price}"></td>
 									<td th:text="${car.etat}"></td>
 									<td >
-											<button th:if="${car.etat}==0" type="button" class="btn btn-primary" th:onclick="|window.location.href='/newContractForm1/' + ${car.id}|">Contract</button>
+											<button th:if="${car.etat}==0" 	type="button" class="btn btn-primary" th:onclick="|window.location.href='/newContractForm1/' + ${car.id}|">Contract</button>
 									</td>
 								<th>
 									<a class="edit" data-toggle="modal" th:onclick="|window.location.href='/cars/editCarForm/' + ${car.id}|">
